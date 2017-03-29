@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1490830914 source:/home/kamil/Pulpit/Projekty/projekt-1/projekt-1/heap.cpp
+	"heap.hpp"
+	<iostream>
+	<cmath>
+
+1490831332 /home/kamil/Pulpit/Projekty/projekt-1/projekt-1/heap.hpp
+	<iostream>
+
+1490830914 source:/home/kamil/Pulpit/Projekty/projekt-1/projekt-1/tests.cpp
+	"heap.hpp"
+	<iostream>
+	<cmath>
+
