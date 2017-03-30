@@ -67,7 +67,7 @@ Heap Heap::operator+(Heap &myHeap)
     }
     return newHeap;
 }
-void Heap::operator--()
+void Heap::operator!()
 {
     size=0;
 }
@@ -84,21 +84,21 @@ int Heap::operator==(Heap &myHeap)
         return 1;
     }
 }
-int Heap::operator=(Heap &myHeap)
+void Heap::operator=(Heap &myHeap)
 {
     size=myHeap.size;
     for(int init=1;init<=size;init++)
     {
         tab[init]=myHeap.tab[init];
     }
-    return 1;
+    return;
 }
-int Heap::addNumber(int number)
+void Heap::addNumber(int number)
 {
     int check=1;
     while(check<=size)
     {
-        if(tab[check]==number) return 0;
+        if(tab[check]==number) return;
     }
     ++(size);
     tab[size]=number;
@@ -114,9 +114,9 @@ int Heap::addNumber(int number)
             help=helpParent;
             helpParent=help/2;
         }
-        else return 1;
+        else return;
     }
-    return 1;
+    return;
 }
 Heap Heap::operator-(Heap &myHeap)
 {
@@ -137,9 +137,9 @@ Heap Heap::operator-(Heap &myHeap)
     }
     return newHeap;
 }
-int Heap::deleteNumber(int number)
+void Heap::deleteNumber(int number)
 {
-    if(size==0) return 0;
+    if(size==0) return;
     else
     {
         int temp=1;
@@ -150,7 +150,7 @@ int Heap::deleteNumber(int number)
                 if(temp==size)
                 {
                     size--;
-                    return 1;
+                    return;
                 }
                 else
                 {
@@ -167,7 +167,7 @@ int Heap::deleteNumber(int number)
                                 tab[temp]=tab[child];
                                 tab[child]=help;
                             }
-                            else return 1;
+                            else return;
                         }
                         else
                         {
@@ -177,7 +177,7 @@ int Heap::deleteNumber(int number)
                                 tab[temp]=tab[child+1];
                                 tab[child+1]=help;
                             }
-                            else return 1;
+                            else return;
                         }
                         temp=child;
                         child=2*temp;
@@ -191,12 +191,12 @@ int Heap::deleteNumber(int number)
                             tab[child]=help;
                         }
                     }
-                    return 1;
+                    return;
                 }
             }
             temp++;
         }
-        return 0;
+        return;
     }
 }
 Heap Heap::takeElement(int number)
@@ -259,9 +259,9 @@ Heap Heap::takeElement(int number)
     }
     return newHeap;
 }
-int Heap::deleteNode(int number)
+void Heap::deleteNode(int number)
 {
-    if(size==0) return 0;
+    if(size==0) return;
     else
     {
         if((number>=1)&(number<=size))
@@ -269,7 +269,7 @@ int Heap::deleteNode(int number)
             if(number==size)
             {
                 size--;
-                return 1;
+                return;
             }
             else
             {
@@ -286,7 +286,7 @@ int Heap::deleteNode(int number)
                             tab[number]=tab[child];
                             tab[child]=help;
                         }
-                        else return 1;
+                        else return;
                     }
                     else
                     {
@@ -296,7 +296,7 @@ int Heap::deleteNode(int number)
                             tab[number]=tab[child+1];
                             tab[child+1]=help;
                         }
-                        else return 1;
+                        else return;
                     }
                     number=child;
                     child=2*number;
@@ -310,10 +310,10 @@ int Heap::deleteNode(int number)
                         tab[child]=help;
                     }
                 }
-                return 1;
+                return;
             }
         }
-        return 0;
+        return;
     }
 }
 int Heap::operator>>(int number)

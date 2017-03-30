@@ -4,21 +4,17 @@
 
 using namespace std;
 
-bool testAddingElement()
+bool testAddingElement(Heap myHeap)
 {
-    Heap myHeap;
-    myHeap.addNumber(1);
-    myHeap.addNumber(5);
-    myHeap.addNumber(4);
-    myHeap.addNumber(4);
-    myHeap.addNumber(6);
-    myHeap.addNumber(3);
-    if(((myHeap>>1)==1)&&((myHeap>>2)==3)&&((myHeap>>3)==4)&&((myHeap>>4)==6)&&((myHeap>>5)==5)) return true;
-    else return false;
+    if((myHeap>>1)!=1) return false;
+    if((myHeap>>2)!=3) return false;
+    if((myHeap>>3)!=4) return false;
+    if((myHeap>>4)!=6) return false;
+    if((myHeap>>5)!=5) return false;
+    return true;
 }
-bool testRemovingElement()
+bool testRemovingElement(Heap myHeap)
 {
-    Heap myHeap;
     myHeap.addNumber(1);
     myHeap.addNumber(5);
     myHeap.addNumber(4);
@@ -27,7 +23,6 @@ bool testRemovingElement()
     myHeap.addNumber(3);
     myHeap.deleteNumber(3);
     if(((myHeap>>1)==1)&&((myHeap>>2)==5)&&((myHeap>>3)==4)&&((myHeap>>4)==6)) return true;
-    else return false;
 }
 bool testTakingElement()
 {
@@ -40,7 +35,6 @@ bool testTakingElement()
     myHeap.addNumber(3);
     Heap newHeap=myHeap.takeElement(1);
     if(((myHeap>>1)==3)&&((myHeap>>2)==5)&&((myHeap>>3)==4)&&((myHeap>>4)==6)&&((newHeap>>1)==1)) return true;
-    else return false;
 }
 bool testAddingHeaps()
 {
@@ -58,7 +52,6 @@ bool testAddingHeaps()
     myHeap2.addNumber(7);
     Heap newHeap=myHeap+myHeap2;
     if(((newHeap>>1)==1)&&((newHeap>>2)==3)&&((newHeap>>3)==2)&&((newHeap>>4)==6)&&((newHeap>>5)==5)&&((newHeap>>6)==4)&&((newHeap>>7)==7)&&((newHeap>>8)==9)) return true;
-    else return false;
 }
 bool testSubtractingHeaps()
 {
@@ -76,7 +69,6 @@ bool testSubtractingHeaps()
     myHeap2.addNumber(7);
     Heap newHeap=myHeap-myHeap2;
     if(((newHeap>>1)==5)) return true;
-    else return false;
 }
 bool testCopyingObject()
 {
@@ -90,7 +82,6 @@ bool testCopyingObject()
     Heap newHeap;
     newHeap=myHeap;
     if(((newHeap>>1)==1)&&((newHeap>>2)==3)&&((newHeap>>3)==4)&&((newHeap>>4)==6)&&((newHeap>>5)==5)&&(newHeap.heapSize()==5)) return true;
-    else return false;
 }
 bool testHeapSize()
 {
@@ -102,7 +93,6 @@ bool testHeapSize()
     myHeap.addNumber(6);
     myHeap.addNumber(3);
     if(myHeap.heapSize()==5) return true;
-    else return false;
 }
 bool testComparingHeaps()
 {
@@ -120,7 +110,6 @@ bool testComparingHeaps()
     myHeap2.addNumber(6);
     myHeap2.addNumber(7);
     if(myHeap==myHeap2) return false;
-    else return true;
 }
 bool testElementBelongs()
 {
@@ -132,7 +121,6 @@ bool testElementBelongs()
     myHeap.addNumber(6);
     myHeap.addNumber(3);
     if(myHeap.numberBelongs(4)) return true;
-    else return false;
 }
 bool testRemovingObject()
 {
@@ -143,9 +131,8 @@ bool testRemovingObject()
     myHeap.addNumber(4);
     myHeap.addNumber(6);
     myHeap.addNumber(3);
-    --myHeap;
+    ((myHeap)!);
     if(myHeap.heapSize()==0) return true;
-    else return false;
 }
 bool testRemovingNode()
 {
@@ -158,20 +145,85 @@ bool testRemovingNode()
     myHeap.addNumber(3);
     myHeap.deleteNode(1);
     if(((myHeap>>1)==3)&&((myHeap>>2)==5)&&((myHeap>>3)==4)&&((myHeap>>4)==6)) return true;
-    else return false;
 }
 int main()
 {
-    testAddingElement();
-    testRemovingElement();
-    testTakingElement();
-    testAddingHeaps();
-    testSubtractingHeaps();
-    testCopyingObject();
-    testHeapSize();
-    testComparingHeaps();
-    testElementBelongs();
-    testRemovingObject();
-    testRemovingNode();
+
+    Heap myHeap;
+    myHeap.addNumber(1);
+    (myHeap!);
+    cout<<myHeap.heapSize()<<endl;
+    myHeap.addNumber(5);
+    myHeap.addNumber(4);
+    myHeap.addNumber(4);
+    myHeap.addNumber(6);
+    myHeap.addNumber(3);
+    cout<<myHeap.heapSize()<<endl;
+
+    if(testAddingElement(myHeap) == true)
+    {
+        cout<<"testAddingElement - OK!"<<endl;
+    }
+    else cout<<"testAddingElement - BAD!"<<endl;
+
+    if(testRemovingElement(myHeap) == true)
+    {
+        cout<<"testRemovingElement - OK!"<<endl;
+    }
+    else cout<<"testRemovingElement - BAD!"<<endl;
+
+    if(testTakingElement() == true)
+    {
+        cout<<"testTakingElement - OK!"<<endl;
+    }
+    else cout<<"testTakingElement - BAD!"<<endl;
+
+    if(testAddingHeaps() == true)
+    {
+        cout<<"testAddingHeaps - OK!"<<endl;
+    }
+    else cout<<"testAddingHeaps - BAD!"<<endl;
+
+    if(testSubtractingHeaps() == true)
+    {
+        cout<<"testSubtractingHeaps - OK!"<<endl;
+    }
+    else cout<<"testSubtractingHeaps - BAD!"<<endl;
+
+    if(testCopyingObject() == true)
+    {
+        cout<<"testCopyingObject - OK!"<<endl;
+    }
+    else cout<<"testCopyingObject - BAD!"<<endl;
+
+    if(testHeapSize() == true)
+    {
+        cout<<"testHeapSize - OK!"<<endl;
+    }
+    else cout<<"testHeapSize - BAD!"<<endl;
+
+    if(testComparingHeaps() == true)
+    {
+        cout<<"testComparingHeaps - OK!"<<endl;
+    }
+    else cout<<"testComparingHeaps - BAD!"<<endl;
+
+    if(testElementBelongs() == true)
+    {
+        cout<<"testElementBelongs - OK!"<<endl;
+    }
+    else cout<<"testElementBelongs - BAD!"<<endl;
+
+    if(testRemovingObject() == true)
+    {
+        cout<<"testRemovingObject - OK!"<<endl;
+    }
+    else cout<<"testRemovingObject - BAD!"<<endl;
+
+    if(testRemovingNode() == true)
+    {
+        cout<<"testRemovingNode - OK!"<<endl;
+    }
+    else cout<<"testRemovingNode - BAD!"<<endl;
     return 0;
 }
