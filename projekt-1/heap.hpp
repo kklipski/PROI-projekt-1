@@ -17,7 +17,6 @@ class Heap{
         Heap operator+(Heap &myHeap);
         void addNumber(int number);
         void deleteNumber(int number);
-        void operator!();                       //usuwanie obiektu
         Heap takeElement(int number);
         void deleteNode(int number);
         int operator>>(int number);             //dostep do elementu

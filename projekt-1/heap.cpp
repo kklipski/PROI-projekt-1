@@ -48,6 +48,7 @@ Heap Heap::operator+(Heap &myHeap)
                 trigger=0;
                 break;
             }
+            help2++;
         }
         if(trigger==1) addNumber(myHeap.tab[help]);
         help++;
@@ -67,10 +68,6 @@ Heap Heap::operator+(Heap &myHeap)
     }
     return newHeap;
 }
-void Heap::operator!()
-{
-    size=0;
-}
 int Heap::operator==(Heap &myHeap)
 {
     if(size!=myHeap.size) return 0;
@@ -80,6 +77,7 @@ int Heap::operator==(Heap &myHeap)
         while(help<=size)
         {
             if(tab[help]!=myHeap.tab[help]) return 0;
+            help++;
         }
         return 1;
     }
@@ -99,8 +97,9 @@ void Heap::addNumber(int number)
     while(check<=size)
     {
         if(tab[check]==number) return;
+        check++;
     }
-    ++(size);
+    size=size+1;
     tab[size]=number;
     int help=size, helpParent=0, temp=0;
     while(help>1)
@@ -131,6 +130,7 @@ Heap Heap::operator-(Heap &myHeap)
                 ++(newHeap.size);
                 newHeap.tab[newHeap.size]=tab[help];
             }
+            help2++;
         }
         help++;
         help2=1;
