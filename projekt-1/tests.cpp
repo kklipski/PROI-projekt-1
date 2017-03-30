@@ -162,11 +162,6 @@ bool testRemovingNode()
 }
 int main()
 {
-
-    cout<<"Hello"<<endl;
-    Heap myHeap;
-    myHeap.addNumber(1);
-    cout<<myHeap.heapSize();
     testAddingElement();
     testRemovingElement();
     testTakingElement();
@@ -178,6 +173,5 @@ int main()
     testElementBelongs();
     testRemovingObject();
     testRemovingNode();
-    cout<<"Bye"<<endl;
     return 0;
 }

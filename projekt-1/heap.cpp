@@ -112,6 +112,7 @@ int Heap::addNumber(int number)
             tab[helpParent]=tab[help];
             tab[help]=temp;
             help=helpParent;
+            helpParent=help/2;
         }
         else return 1;
     }
